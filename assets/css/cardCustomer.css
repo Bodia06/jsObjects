@@ -1,0 +1,13 @@
+.card-customer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	max-width: 300px;
+	width: 100%;
+	padding: 1.25em;
+	border: 1px solid #ccc;
+	border-radius: 0.5em;
+	background-color: bisque;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
