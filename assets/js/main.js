@@ -1,4 +1,14 @@
 //Task_1
+/**
+ * Creates a customer object.
+ * @param {string} firstName
+ * @param {string} lastName
+ * @param {string} email
+ * @param {string} password
+ * @param {number} number
+ * @param {string} adress
+ * @returns {object}
+ */
 function Customer(firstName, lastName, email, password, number, adress) {
 	this.firstName = firstName
 	this.lastName = lastName
@@ -13,7 +23,9 @@ function Customer(firstName, lastName, email, password, number, adress) {
 		this.number = newNumber
 	}
 }
-
+/**
+ * @returns {boolean}
+ */
 Customer.isMale = function () {
 	const gender = prompt('Please write your gender true(male)/false(female)')
 	if (gender === 'true') {
@@ -26,6 +38,11 @@ Customer.isMale = function () {
 const CustomerCopy1 = { ...Customer }
 const CustomerCopy2 = Object.assign({}, Customer)
 
+/**
+ * Creates a customer card element and appends it to the body.
+ * @param {object} customer
+ * @returns {HTMLElement}
+ */
 function createCardCustomer(customer) {
 	const body = document.body
 
@@ -85,6 +102,15 @@ for (key in cat) {
 }
 
 //Task_3
+/**
+ * Creates a book object.
+ * @param {string} author
+ * @param {string} title
+ * @param {number} yearPublished
+ * @param {string} publisher
+ * @param {number} price
+ * @returns {object}
+ */
 function Book(author, title, yearPublished, publisher, price) {
 	this.author = author
 	this.title = title
