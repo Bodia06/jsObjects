@@ -1,28 +1,24 @@
 //Task_1
-/**
- * Creates a customer object.
- * @param {string} firstName
- * @param {string} lastName
- * @param {string} email
- * @param {string} password
- * @param {number} number
- * @param {string} adress
- * @returns {object}
- */
-function Customer(firstName, lastName, email, password, number, adress) {
-	this.firstName = firstName
-	this.lastName = lastName
-	this.email = email
-	this.password = password
-	this.number = number
-	this.adress = adress
-	this.getAdress = function () {
+const Customer = {
+	firstName: 'Jan',
+	lastName: 'Kowalski',
+	email: 'john.doe@example.com',
+	password: 'securePassword123',
+	number: '123-456-789',
+	adress: '123 Main Street, New York',
+
+	getAdress: function () {
 		return this.adress
-	}
-	this.changeNumber = function (newNumber) {
+	},
+
+	changeNumber: function (newNumber) {
 		this.number = newNumber
-	}
+	},
 }
+
+console.log(Customer.getAdress())
+Customer.changeNumber('987-654-321')
+console.log(Customer.number)
 /**
  * @returns {boolean}
  */
@@ -34,9 +30,12 @@ Customer.isMale = function () {
 		return 'female'
 	}
 }
+console.log(Customer.isMale())
 
 const CustomerCopy1 = { ...Customer }
 const CustomerCopy2 = Object.assign({}, Customer)
+console.log(CustomerCopy1)
+console.log(CustomerCopy2)
 
 /**
  * Creates a customer card element and appends it to the body.
@@ -78,17 +77,10 @@ function createCardCustomer(customer) {
 
 	return card
 }
-const customerInfo = new Customer(
-	'Jan',
-	'Kowalski',
-	'jankowalski1@gmail.com',
-	'password123',
-	'123456789',
-	'Warszawa'
-)
-createCardCustomer(customerInfo)
+createCardCustomer(Customer)
 
 delete Customer.adress
+console.log(Customer)
 //Task_2
 const cat = {
 	Name: 'Murka',
@@ -130,9 +122,26 @@ function Book(author, title, yearPublished, publisher, price) {
 }
 
 Book.prototype.year = function () {
-	return Date.now() - this.yearPublished
+	return new Date().getFullYear() - this.yearPublished
 }
 
 Book.prototype.createNewPrice = function (newPrice) {
 	this.price = newPrice
 }
+
+const book1 = new Book(
+	'George Orwell',
+	'1984',
+	1949,
+	{ name: 'Secker & Warburg', city: 'London' },
+	15.99
+)
+for (key in book1) {
+	console.log(key + ':' + book1[key])
+}
+
+let years = book1.year()
+console.log('years: ' + years)
+
+book1.createNewPrice(20)
+console.log(book1.price)
