@@ -1,5 +1,5 @@
 //Task_1
-const Customer = {
+const customer = {
 	firstName: 'Jan',
 	lastName: 'Kowalski',
 	email: 'john.doe@example.com',
@@ -16,26 +16,22 @@ const Customer = {
 	},
 }
 
-console.log(Customer.getAdress())
-Customer.changeNumber('987-654-321')
-console.log(Customer.number)
+console.log(customer.getAdress())
+customer.changeNumber('987-654-321')
+console.log(customer.number)
 /**
  * @returns {boolean}
  */
-Customer.isMale = function () {
-	const gender = prompt('Please write your gender true(male)/false(female)')
-	if (gender === 'true') {
-		return 'male'
-	} else {
-		return 'female'
-	}
+customer.isMale = false
+customer.getGender = function () {
+	return this.isMale ? 'male' : 'female'
 }
-console.log(Customer.isMale())
+console.log(customer.getGender())
 
-const CustomerCopy1 = { ...Customer }
-const CustomerCopy2 = Object.assign({}, Customer)
-console.log(CustomerCopy1)
-console.log(CustomerCopy2)
+const customerCopy1 = { ...customer }
+const customerCopy2 = Object.assign({}, customer)
+console.log(customerCopy1)
+console.log(customerCopy2)
 
 /**
  * Creates a customer card element and appends it to the body.
@@ -77,10 +73,10 @@ function createCardCustomer(customer) {
 
 	return card
 }
-createCardCustomer(Customer)
+createCardCustomer(customer)
 
-delete Customer.adress
-console.log(Customer)
+delete customer.adress
+console.log(customer)
 //Task_2
 const cat = {
 	Name: 'Murka',
